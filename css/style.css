@@ -361,6 +361,20 @@ h1, h2, h3, h4, h5,
     .site-navbar .site-navigation .site-menu.site-menu-dark > li > a {
       color: #000; }
 
+      .site-navbar a{
+        color: #d33e04;
+        font-size: 20px;
+      }
+.menubar{
+  text-align: center;
+}
+
+.menubar a{
+  color: #d33e04;
+  font-size: 20px;
+  margin-right: 50px;
+}
+
 .site-mobile-menu {
   width: 300px;
   position: fixed;
