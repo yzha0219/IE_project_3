@@ -29,6 +29,14 @@
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    
+    //google translate
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');}
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <div class="site-wrap">
            <div class="site-mobile-menu site-navbar-target">
@@ -95,20 +103,14 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                      aria-expanded="false"> <span class="nav-label">Where to go</span><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="swimschool.php" class="nav-link text-left">Swim School</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="swimschool.php" class="nav-link text-left">Where to go</a></li>
                   <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                       aria-expanded="false"> <span class="nav-label">First Aid</span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="cpr.html" class="nav-link text-left">CPR</a></li>
-                      <li><a href="sea_creature.html" class="nav-link text-left">Sea Creature attacking</a></li>
+                      <li><a href="sea_creature.html" class="nav-link text-left">Marine Animal bites</a></li>
                     </ul>
                   </li>
-                  <li><a href="contact.html" class="nav-link text-left">About us</a></li>
                 </ul>
               </nav>
 
@@ -140,33 +142,50 @@
   $database = mysqli_select_db($connection, $DB_DATABASE);
     ?>
 
+    <div class="hero-2" style="background-image: url('images/girl-2501087_1280.jpg');">
+      <div class="container">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-12">
+
 
 
 <!-- Get form -->
 <form action="<?PHP echo $_SERVER['SCRIPT_NAME'] ?>" method="POST">
-  <table border="0">
-    <tr>
-    <h1 style="color: #d33e04">Swim School Locator</h1>
-    </tr>
-    <tr>
-      <td>Enter your postcode to find swim school near by you</td>
-    </tr>
-      <td>
-        <input type="text" name="POSTCODE" maxlength="45" size="30" />
-      </td>
-<td><select name="DIST">
+    <h2>Swimming Lesson</h2>
+    <span class="sub-title">Fine The Place To Learn Swim</span>
+
+  <table border="0" align="center">
+    <td>
+        <input type="text" class="form-control search-slt" name="POSTCODE"  placeholder="Postcode" />
+    </td>
+<td><select name="DIST" class="form-control search-slt" >
   <option value="1km">1km</option>
   <option value="5km">5km</option>
   <option value="10km">10km</option>
 </select>
 </td>
+ <td><select name="CATE" class="form-control search-slt" >
+     <option value="Swim School">Swim School</option>
+  <option value="Swim and Survive">Swim and Survive</option>
+  <option value="Nippers">Nippers</option>
+     <option value="Express Swim Lessons">Express Swim Lessons</option>
+     <option value="ALL">All</option>
+</select>
+</td>
       <td>
-        <input type="submit" value="SEARCH" />
+          <input type="submit"class="btn btn-danger wrn-btn" value="SEARCH" name="SEARCH"/>
       </td>
-
   </table>
 </form>
 
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section py-5 custom-border-bottom" >
                     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -185,10 +204,118 @@
 
 
 <?php
+    
+if(isset($_POST['SEARCH'])){
 //get input data
 $postcode = $_POST['POSTCODE'];
 $distance = $_POST['DIST'];
+$cate = $_POST['CATE'];
 
+
+//SwimSchoolList
+$resultSSL = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE businesscategory='Swim School'");
+$nameSSL = [];
+$addressSSL = [];
+$suburbSSL = [];
+$postcodeSSL = [];
+$cateSSL = [];
+$contSSL = [];
+$webSSL = [];
+$latSSL = [];
+$longSSL = [];
+while($query_data = mysqli_fetch_row($resultSSL)) {
+//add data into array
+array_push($nameSSL,$query_data[0]);
+array_push($addressSSL,$query_data[1]);
+array_push($suburbSSL,$query_data[2]);
+array_push($postcodeSSL,$query_data[3]);
+array_push($cateSSL,$query_data[4]);
+array_push($contSSL,$query_data[5]);
+array_push($webSSL,$query_data[6]);
+array_push($latSSL,$query_data[7]);
+array_push($longSSL,$query_data[8]);
+}
+
+//SwimSurviveList
+$resultSSV = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE businesscategory='Swim and Survive'");
+$nameSSV = [];
+$addressSSV = [];
+$suburbSSV = [];
+$postcodeSSV = [];
+$cateSSV = [];
+$contSSV = [];
+$webSSV = [];
+$latSSV = [];
+$longSSV = [];
+
+      while($query_data = mysqli_fetch_row($resultSSV)) {
+//add data into array
+array_push($resultSSV,$query_data[0]);
+array_push($addressSSV,$query_data[1]);
+array_push($suburbSSV,$query_data[2]);
+array_push($postcodeSSV,$query_data[3]);
+array_push($cateSSV,$query_data[4]);
+array_push($contSSV,$query_data[5]);
+array_push($webSSV,$query_data[6]);
+array_push($latSSV,$query_data[7]);
+array_push($longSSV,$query_data[8]);
+}
+
+//NipperList
+$resultNIP = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE businesscategory='Nippers'");
+$nameNIP = [];
+$addressNIP = [];
+$suburbNIP = [];
+$postcodeNIP = [];
+$cateNIP = [];
+$contNIP = [];
+$webNIP = [];
+$latNIP = [];
+$longNIP = [];
+while($query_data = mysqli_fetch_row($resultNIP)) {
+//add data into array
+array_push($nameNIP,$query_data[0]);
+array_push($addressNIP,$query_data[1]);
+array_push($suburbNIP,$query_data[2]);
+array_push($postcodeNIP,$query_data[3]);
+array_push($cateNIP,$query_data[4]);
+array_push($contNIP,$query_data[5]);
+array_push($webNIP,$query_data[6]);
+array_push($latNIP,$query_data[7]);
+array_push($longNIP,$query_data[8]);
+}
+
+//ExpressSwimLessonList
+$resultESL = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE businesscategory='Express Swim Lessons'");
+$nameESL = [];
+$addressESL = [];
+$suburbESL = [];
+$postcodeESL = [];
+$cateESL = [];
+$contESL = [];
+$webESL = [];
+$latESL = [];
+$longESL = [];
+while($query_data = mysqli_fetch_row($resultESL)) {
+//add data into array
+array_push($nameESL,$query_data[0]);
+array_push($addressESL,$query_data[1]);
+array_push($suburbESL,$query_data[2]);
+array_push($postcodeESL,$query_data[3]);
+array_push($cateESL,$query_data[4]);
+array_push($contESL,$query_data[5]);
+array_push($webESL,$query_data[6]);
+array_push($latESL,$query_data[7]);
+array_push($longESL,$query_data[8]);
+}
+
+
+
+
+
+
+
+/*
 $resultall = mysqli_query($connection, "SELECT * FROM schoolSheet");
 $nameallArray = [];
 $addressallArray = [];
@@ -211,17 +338,15 @@ array_push($contactallArray,$query_data[5]);
 array_push($websiteallArray,$query_data[6]);
 array_push($latallArray,$query_data[7]);
 array_push($longallArray,$query_data[8]);
-}
+}*/
 
-if($postcode == "all"){
-//show all data from table
-$result = mysqli_query($connection, "SELECT * FROM schoolSheet");
+if($cate == "ALL"){
+//show all data in the postcode
+$result = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE postcode='$postcode'");
 }
 else{
-//show related postcode data
-//    $result = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE surburb='$postcode'");
-// $result = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE postcode='$postcode' OR `Business Category`='$postcode' OR surburn='$postcode'");
-$result = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE postcode='$postcode' OR suburb='$postcode' OR businesscategory='$postcode'");
+//show category data in the postcode
+$result = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE postcode='$postcode' AND businesscategory='$cate'");
 }
 
 $nameArray = [];
@@ -233,10 +358,8 @@ $contactArray = [];
 $websiteArray = [];
 $latArray = [];
 $longArray = [];
-echo "RED marker: swim schools in this postcode.<br>";
-echo "BLUE marker: swim schools near this postcode.<br>";
-echo "View school information by clicking on the marker.<br>";
-echo "You can also check detail and the programs they provided with the form below<br>";
+
+
 
 
 if(mysqli_num_rows($result) != 0){
@@ -247,7 +370,7 @@ echo "You can also check detail and the programs they provided with the form bel
 */
 echo "<table border='1'>
 <tr>
-<th>Swim School Name</th>
+<th>Place Name</th>
 <th>Address</th>
         <th>Business Category</th>
         <th>Phone</th>
@@ -277,18 +400,39 @@ echo "</tr>";
 }
 }
       else{
-          echo "No result for this search";
+          echo '<script language="javascript">';
+          echo 'alert("No result for this search")';
+          echo '</script>';
       }
+    
+}
 ?>
 
 </table>
     </div>
                <div class="col-md-6">
 
+<div>
+<img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" align="" />
+    <span>Searching Result</span>
+<img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" align="" />
+    <span>Swim School</span>
+    <img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" align="" />
+    <span>Swim and Survive</span><br>
+    <img src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png" align="" />
+      <span>Nippers</span>
+<img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" align="" />
+    <span>Express Swim Lessons</span>
+   
+     <p align="right"><b>Tip:</b> Click on marker for more information</p>
+
+
+                   </div>
 <div id="map"></div>
 
                         </div></div>
         </div></div>
+    </div>
 
 <!-- Clean up. -->
 <?php
@@ -298,32 +442,72 @@ echo "</tr>";
 
 <script>
   var dist = "<?php echo $distance; ?>";
+  var cate = "<?php echo $cate; ?>";
   var input = "<?php echo $postcode; ?>";
 //  var input = document.getElementById("POSTCODE").value;
  console.log(dist);
    console.log(input);
+    console.log(cate);
     function initMap(position){
         // Map options
         var options = {
             zoom:12,
             center:{lat:-37.8409,lng:144.9464}
         }
+
+
         // get database data from php
-        var nameallArray = <?php echo json_encode($nameallArray); ?>;
-        var addressallArray = <?php echo json_encode($addressallArray); ?>;
-        var suburballArray = <?php echo json_encode($suburballArray); ?>;
-        var postcodeallArray = <?php echo json_encode($postcodeallArray); ?>;
-        var categoryallArray = <?php echo json_encode($categoryallArray); ?>;
-        var contactallArray = <?php echo json_encode($contactallArray); ?>;
-        var websiteallArray = <?php echo json_encode($websiteallArray); ?>;
-        var latallArray = <?php echo json_encode($latallArray); ?>;
-        var longallArray = <?php echo json_encode($longallArray); ?>;
+        //swimschool
+        var nameSSL = <?php echo json_encode($nameSSL); ?>;
+        console.log(nameSSL);
+        var addressSSL = <?php echo json_encode($addressSSL); ?>;
+        var suburbSSL = <?php echo json_encode($suburbSSL); ?>;
+        var postcodeSSL = <?php echo json_encode($postcodeSSL); ?>;
+        var cateSSL = <?php echo json_encode($cateSSL); ?>;
+        var contSSL = <?php echo json_encode($contSSL); ?>;
+        var webSSL = <?php echo json_encode($webSSL); ?>;
+        var latSSL = <?php echo json_encode($latSSL); ?>;
+        var longSSL = <?php echo json_encode($longSSL); ?>;
+
+        //swim and survive
+        var nameSSV = <?php echo json_encode($nameSSV); ?>;
+        console.log(nameSSV);
+        var addressSSV = <?php echo json_encode($addressSSV); ?>;
+        var suburbSSV = <?php echo json_encode($suburbSSV); ?>;
+        var postcodeSSV = <?php echo json_encode($postcodeSSV); ?>;
+        var cateSSV = <?php echo json_encode($cateSSV); ?>;
+        var contSSV = <?php echo json_encode($contSSV); ?>;
+        var webSSV = <?php echo json_encode($webSSV); ?>;
+        var latSSV = <?php echo json_encode($latSSV); ?>;
+        var longSSV = <?php echo json_encode($longSSV); ?>;
+
+        //nippers
+        var nameNIP = <?php echo json_encode($nameNIP); ?>;
+        console.log(nameNIP);
+        var addressNIP = <?php echo json_encode($addressNIP); ?>;
+        var suburbNIP = <?php echo json_encode($suburbNIP); ?>;
+        var postcodeNIP = <?php echo json_encode($postcodeNIP); ?>;
+        var cateNIP = <?php echo json_encode($cateNIP); ?>;
+        var contNIP = <?php echo json_encode($contNIP); ?>;
+        var webNIP = <?php echo json_encode($webNIP); ?>;
+        var latNIP = <?php echo json_encode($latNIP); ?>;
+        var longNIP = <?php echo json_encode($longNIP); ?>;
+
+        //express swim lessons
+        var nameESL = <?php echo json_encode($nameESL); ?>;
+        console.log(nameESL);
+        var addressESL = <?php echo json_encode($addressESL); ?>;
+        var suburbESL = <?php echo json_encode($suburbESL); ?>;
+        var postcodeESL = <?php echo json_encode($postcodeESL); ?>;
+        var cateESL = <?php echo json_encode($cateESL); ?>;
+        var contESL = <?php echo json_encode($contESL); ?>;
+        var webESL = <?php echo json_encode($webESL); ?>;
+        var latESL = <?php echo json_encode($latESL); ?>;
+        var longESL = <?php echo json_encode($longESL); ?>;
 
 
 
-
-
-
+        //result
         var nameArray = <?php echo json_encode($nameArray); ?>;
         var addressArray = <?php echo json_encode($addressArray); ?>;
         var suburbArray = <?php echo json_encode($suburbArray); ?>;
@@ -351,21 +535,139 @@ echo "</tr>";
 var infowindow = new google.maps.InfoWindow;
 
         var marker, i;
-        for (i = 0; i < nameallArray.length; i++) {
+        if(cate=="ALL"){
+
+            //swim school
+            for (i = 0; i < nameSSL.length; i++) {
             marker = new google.maps.Marker({
-            position: new google.maps.LatLng(latallArray[i], longallArray[i]),
+            position: new google.maps.LatLng(latSSL[i], longSSL[i]),
             icon:{url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"},
+            map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                 infowindow.setContent('<div><h3>'+nameSSL[i]+'</h3><p>'+addressSSL[i]+
+                                       '<br>'+contSSL[i]+'<br>'+cateSSL[i]+'<br><a href='+webSSL[i]+'>'+webSSL[i]+'</a></p></div>');
+                 infowindow.open(map, marker);
+             }
+        })(marker, i));}
+
+
+            //swim and survive
+            for (i = 0; i < nameSSV.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"},
 map: map
         });
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                 infowindow.setContent('<div><h3>'+nameallArray[i]+'</h3><p>'+addressallArray[i]+
-'<br>'+contactallArray[i]+'<br>'+categoryallArray[i]+'<br><a href='+websiteallArray[i]+'>'+websiteallArray[i]+'</a></p></div>');
+                 infowindow.setContent('<div><h3>'+nameSSV[i]+'</h3><p>'+addressSSV[i]+
+'<br>'+contSSL[i]+'<br>'+cateSSV[i]+'<br><a href='+webSSV[i]+'>'+webSSV[i]+'</a></p></div>');
+                 infowindow.open(map, marker);
+             }
+        })(marker, i));}
+
+                //nippers
+                      for (i = 0; i < nameNIP.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"},
+map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                 infowindow.setContent('<div><h3>'+nameNIP[i]+'</h3><p>'+addressNIP[i]+
+'<br>'+contNIP[i]+'<br>'+cateNIP[i]+'<br><a href='+webNIP[i]+'>'+webNIP[i]+'</a></p></div>');
+                 infowindow.open(map, marker);
+             }
+        })(marker, i));}
+
+            //Express Swim Lessons
+
+                           for (i = 0; i < nameESL.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(laESL[i], longESL[i]),
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"},
+map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                 infowindow.setContent('<div><h3>'+nameESL[i]+'</h3><p>'+addressESL[i]+
+'<br>'+contESL[i]+'<br>'+cateESL[i]+'<br><a href='+webESL[i]+'>'+webESL[i]+'</a></p></div>');
                  infowindow.open(map, marker);
              }
         })(marker, i));
 
-}
+            }
+
+        }else if(cate=="Swim School"){
+
+          for (i = 0; i < nameSSL.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latSSL[i], longSSL[i]),
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"},
+            map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                 infowindow.setContent('<div><h3>'+nameSSL[i]+'</h3><p>'+addressSSL[i]+
+                                       '<br>'+contSSL[i]+'<br>'+cateSSL[i]+'<br><a href='+webSSL[i]+'>'+webSSL[i]+'</a></p></div>');
+                 infowindow.open(map, marker);
+             }
+        })(marker, i));}
+
+
+
+        }else if(cate=="Swim and Survive"){
+
+            for (i = 0; i < nameSSV.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"},
+map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                 infowindow.setContent('<div><h3>'+nameSSV[i]+'</h3><p>'+addressSSV[i]+
+'<br>'+contSSL[i]+'<br>'+cateSSV[i]+'<br><a href='+webSSV[i]+'>'+webSSV[i]+'</a></p></div>');
+                 infowindow.open(map, marker);
+             }
+        })(marker, i));}
+
+        }else if(cate=="Nippers"){
+                                         for (i = 0; i < nameNIP.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"},
+map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                 infowindow.setContent('<div><h3>'+nameNIP[i]+'</h3><p>'+addressNIP[i]+
+'<br>'+contNIP[i]+'<br>'+cateNIP[i]+'<br><a href='+webNIP[i]+'>'+webNIP[i]+'</a></p></div>');
+                 infowindow.open(map, marker);
+             }
+        })(marker, i));}
+        }else{
+
+
+                           for (i = 0; i < nameESL.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(laESL[i], longESL[i]),
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"},
+map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                 infowindow.setContent('<div><h3>'+nameESL[i]+'</h3><p>'+addressESL[i]+
+'<br>'+contESL[i]+'<br>'+cateESL[i]+'<br><a href='+webESL[i]+'>'+webESL[i]+'</a></p></div>');
+                 infowindow.open(map, marker);
+             }
+        })(marker, i));
+
+            }
+        }
 
         if(nameArray.length != 0){
         //marker
@@ -373,7 +675,7 @@ map: map
         for (i = 0; i < nameArray.length; i++) {
             marker = new google.maps.Marker({
             position: new google.maps.LatLng(latArray[i], longArray[i]),
-            icon:{url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"},
+            icon:{url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"},
             map: map
         });
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -394,50 +696,11 @@ map.setZoom(12);}
 else{
 map.setZoom(10);}
             map.setCenter(marker.getPosition());
-            //extend zoom according to position
-            //var loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
-            //bounds.extend(loc);
         }
-        //re-center map
-        //map.fitBounds(bounds);
-        //map.panToBounds(bounds);
+
         }
 }
-       /*
-      // Array of markers
-      var markers = [
-        {
-          coords:{lat:-37.8398,lng:144.9132},
-          content:'LSV Test Page'
-        },
-        {
-          coords:{lat:-37.8221,lng:144.9859},
-          content:'Klim Swim Richmond'
-        }
-      ];
-      // Loop through markers
-      for(var i = 0;i < markers.length;i++){
-        // Add marker
-        addMarker(markers[i]);
-      }
-      // Add Marker Function
-      function addMarker(props){
-        var marker = new google.maps.Marker({
-          position:props.coords,
-          map:map,
-          //icon:props.iconImage
-        });
-        // Check content
-        if(props.content){
-          var infoWindow = new google.maps.InfoWindow({
-            content:props.content
-          });
-          marker.addListener('click', function(){
-            infoWindow.open(map, marker);
-          });
-        }
-      }
-    }*/
+
   </script>
 
 <script async defer
