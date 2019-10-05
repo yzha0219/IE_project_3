@@ -30,8 +30,7 @@
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     
-    //google translate
-    <div id="google_translate_element"></div>
+     <div id="google_translate_element"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');}
@@ -142,7 +141,7 @@
   $database = mysqli_select_db($connection, $DB_DATABASE);
     ?>
 
-    <div class="hero-2" style="background-image: url('images/girl-2501087_1280.jpg');">
+    <div class="hero-2" style="background-image: url('images/swimschool.jpg');">
       <div class="container">
         <div class="row justify-content-center text-center align-items-center">
           <div class="col-md-12">
@@ -220,7 +219,7 @@ $suburbSSL = [];
 $postcodeSSL = [];
 $cateSSL = [];
 $contSSL = [];
-$webSSL = [];
+//$webSSL = [];
 $latSSL = [];
 $longSSL = [];
 while($query_data = mysqli_fetch_row($resultSSL)) {
@@ -231,7 +230,7 @@ array_push($suburbSSL,$query_data[2]);
 array_push($postcodeSSL,$query_data[3]);
 array_push($cateSSL,$query_data[4]);
 array_push($contSSL,$query_data[5]);
-array_push($webSSL,$query_data[6]);
+//array_push($webSSL,$query_data[6]);
 array_push($latSSL,$query_data[7]);
 array_push($longSSL,$query_data[8]);
 }
@@ -250,7 +249,7 @@ $longSSV = [];
 
       while($query_data = mysqli_fetch_row($resultSSV)) {
 //add data into array
-array_push($resultSSV,$query_data[0]);
+array_push($nameSSV,$query_data[0]);
 array_push($addressSSV,$query_data[1]);
 array_push($suburbSSV,$query_data[2]);
 array_push($postcodeSSV,$query_data[3]);
@@ -458,6 +457,7 @@ echo "</tr>";
 
         // get database data from php
         //swimschool
+        var resultSSL = <?php echo json_encode($resultSSL); ?>;
         var nameSSL = <?php echo json_encode($nameSSL); ?>;
         console.log(nameSSL);
         var addressSSL = <?php echo json_encode($addressSSL); ?>;
@@ -465,7 +465,8 @@ echo "</tr>";
         var postcodeSSL = <?php echo json_encode($postcodeSSL); ?>;
         var cateSSL = <?php echo json_encode($cateSSL); ?>;
         var contSSL = <?php echo json_encode($contSSL); ?>;
-        var webSSL = <?php echo json_encode($webSSL); ?>;
+        //var webSSL = "<?php echo json_encode($webSSL); ?>";
+        var webSSL = ["http://www.hilac.com.au","N/A","http://www.aquazone.com.au","http://www.ngshire.vic.gov.au/Council-Services/Sports-Lei","N/A","http://gss.vic.edu.au","N/A","http://bluewater.org.au","http://www.mslc.com.au","http://www.harleystreetswimschool.com","http://www.federation.edu.au/unisports","http://www.colprim.vic.edu.au","http://www.sppyramidhill.catholic.edu.au","http://www.campaspeaquatics.com.au","N/A","http://www.benalla.ymca.org.au/","https://bsc.boroondaraleisure.com.au/swim/swimming-lessons","http://myswimworld.com.au/glenwaverley/","http://www.bluewater.org.au/Home","https://aquastyleswimschool.com/","https://aquastyleswimschool.com/","https://www.bendigo.vic.gov.au/Things-To-Do/aquatic-facility/faith-leech-aquatic-centre","https://www.faithleechaquatic.com.au/swim/aquatic-facilities","https://www.hume.vic.gov.au/Leisure_Sport_amp_Recreation/Leisure_Centres/Broadmeadows_Aquatic_and_Leisure_Centre","https://www.swimcentre.com","https://cggsaquatic.com.au/swim-school/about/","https://chewtonpool.com/","https://www.cobdenhealth.org.au/services/health-and-fitness","https://diamondcreek.ymca.org.au/","http://www.campaspeaquatics.com.au/aqua/ewmac","https://www.bendigo.vic.gov.au/Things-To-Do/aquatic-facility/elmore-swimming-pool","http://www.southgippslandpools.ymca.org.au/discover/foster-outdoor-pool.html","https://www.mrsc.vic.gov.au/See-Do/Swimming-Sport-Fitness/Pools-Leisure-Centres/Gisborne-Aquatic-Centre","https://watermarcbanyule.com.au","https://www.stonnington.vic.gov.au/Discover/Harold-Holt-Swim-Centre","N/A","N/A","https://www.gurriwanyarrawc.com.au/","https://www.geelongaustralia.com.au/kardiniapool/default.aspx","N/A","http://www.campaspeaquatics.com.au/aqua/outdoor%20pools/kyabram","https://www.mrsc.vic.gov.au/See-Do/Swimming-Sport-Fitness/Pools-Leisure-Centres/Kyneton-Toyota-Sports-Aquatic-Centre","http://leisurecity.ymca.org.au","https://jumpswimschools.com.au/mornington/","https://www.kiddieswim.com.au/home.html","https://www.alpineshire.vic.gov.au/residents/things-do/recreation/swimming-pools","https://www.nobleparkaquaticcentre.com.au","http://www.northlodgeswimmingacademy.com.au","N/A","http://www.numurkah.ymca.org.au","http://peninsulaswimmingcentre.com.au/","https://leisure.yarracity.vic.gov.au/locations/richmond-recreation-centre","https://www.southpacifichc.com.au › clubs › st-kilda-club","https://www.stateswim.com.au/","http://www.wangaratta.ymca.org.au/","https://www.caseyarc.ymca.org.au","https://www.activemoreland.com.au/about-us/centre-locations/coburg-leisure-centre/","https://elthamleisurecentre.com.au","https://hawthorn.boroondaraleisure.com.au/","N/A","https://aquapulse.wynactive.com.au/learn-to-swim","https://kew.boroondaraleisure.com.au","https://www.kilsythcp.com.au","https://www.sports.org.au › swimming","https://milduraaquaticfacilities.com.au","http://www.aqualink.com.au › Aqualink-Nunawading-Page","https://www.pelicanparkrec.com.au","https://www.ballarataquaticcentre.com","https://www.aquarena.com.au","http://aquamoves.com.au","https://www.healthways.com.au","https://ascotvalelc.com.au","https://www.hume.vic.gov.au/Leisure_Sport_amp_Recreation/Leisure_Centres/Broadmeadows_Aquatic_and_Leisure_Centre","https://www.activemoreland.com.au/aquatic-and-leisure-centres/brunswick-baths/","https://carltonbaths.ymca.org.au/","https://kingstonactive.com.au/learn-to-swim","https://www.activemoreland.com.au","https://horsham.ymca.org.au/","https://www.banyule.vic.gov.au/Banyule-leisure/Ivanhoe-Aquatic-Banyule","https://www.knoxleisureworks.com.au/","https://www.maribyrnong.vic.gov.au › mac › Home","https://meltonwaves.com.au","http://www.northcote.ymca.org.au","https://grampians.ymca.org.au/where-we-are/portland/Pages/default.aspx","https://www.hume.vic.gov.au/Leisure_Sport_amp_Recreation/Leisure_Centres/Sunbury_Aquatic_and_Leisure_Centre","https://www.brimbank.vic.gov.au/leisure-parks-and-facilities/sunshine-leisure-centre-slc","https://www.windyhill.com.au/","http://www.wodongasportsandleisure.com.au/","http://www.aqualink.com.au › aqualink-box-hill-page","https://grampians.ymca.org.au/what-we-do/aquatics/ararat/Pages/default.aspx","http://www.bluewater.org.au › Home","http://www.swimcentre.com","https://www.claytonaquaticshealthclub.com.au › Home","http://www.dandenongoasis.com.au","https://kensington.ymca.org.au","http://www.mslc.com.au/","https://www.monashaquaticrecreationcentre.com.au","https://www.oakleighrecreationcentre.com.au","https://www.goodlifehealthclubs.com.au › clubs › sandringham","https://www.mitchellshire.vic.gov.au/venues/seymour-sports-and-aquatic-centre","https://www.brimbank.vic.gov.au/leisure-parks-and-facilities/st-albans-leisure-centre-salc","http:/ngshire.vic.gov.au","https://www.vickifieldswimschool.com.au","http://www.wangaratta.ymca.org.au","http://www.warragul.ymca.org.au","https://whittlesea.ymca.org.au","http://www.wonthaggi.ymca.org.au","https://www.yarracentre.com.au/","https://www.geelongaustralia.com.au/splashdown/default.aspx","https://www.geelongaustralia.com.au/waterworld/default.aspx","https://www.bkgymswim.com.au","https://www.kingswim.com.au/bayside/","https://www.kingswim.com.au/caroline-springs/","https://www.kingswim.com.au/chirnside-park/","https://www.kingswim.com.au/clyde-north/","https://www.kingswim.com.au/derrimut/","https://www.kingswim.com.au/dingley/","https://www.kingswim.com.au/frankston/","https://www.kingswim.com.au/langwarrin/","https://www.kingswim.com.au/mernda/","https://www.kingswim.com.au/mornington/","https://www.kingswim.com.au/narre-warren/","https://www.kingswim.com.au/wantirna/","https://www.kingswim.com.au/st-kilda-east/","https://leisure.yarracity.vic.gov.au/locations/collingwood-leisure-centre","http://ilovetrac.com.au/Pages/Home.aspx","https://www.genesisfitness.com.au/gym/vic/dandenong/swim-school","https://www.genesisfitness.com.au/gym/vic/wantirna/swim-school","https://www.starfitness.com.au/","https://www.goodlifehealthclubs.com.au/clubs/armadale/","https://melbournesportscentres.com.au › msac","https://inputfitness.com.au","https://www.kiddieswim.com.au/home.html","https://www.kiddieswim.com.au/home.html","https://jumpswimschools.com.au/berwick/","https://jumpswimschools.com.au/bundoora/","https://jumpswimschools.com.au/caroline-springs/","https://jumpswimschools.com.au/carrum-downs/","https://jumpswimschools.com.au/craigieburn/","https://jumpswimschools.com.au/cranbourne-west/","https://jumpswimschools.com.au/dandenong/","https://jumpswimschools.com.au/deer-park/","https://jumpswimschools.com.au/fairfield/","https://jumpswimschools.com.au/ferntree-gully/","https://jumpswimschools.com.au/jump-flemington/","https://jumpswimschools.com.au/geelong-west/","https://jumpswimschools.com.au/hoppers-crossing/","https://jumpswimschools.com.au/keilor-park/","https://jumpswimschools.com.au/keysborough/","https://jumpswimschools.com.au/lara/","https://jumpswimschools.com.au/lynbrook/","https://jumpswimschools.com.au/maidstone/","https://jumpswimschools.com.au/narre-warren/","https://jumpswimschools.com.au/pakenham/","https://jumpswimschools.com.au/jump-pakenham-lakeside/","https://jumpswimschools.com.au/point-cook/","https://jumpswimschools.com.au/reservoir/","https://jumpswimschools.com.au/rowville/","https://jumpswimschools.com.au/somerville/","https://jumpswimschools.com.au/south-morang/","https://jumpswimschools.com.au/sunbury/"]
         var latSSL = <?php echo json_encode($latSSL); ?>;
         var longSSL = <?php echo json_encode($longSSL); ?>;
 
