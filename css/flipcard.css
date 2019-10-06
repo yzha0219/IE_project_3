@@ -1,0 +1,56 @@
+.flip_wrap{
+  display:inline-block;
+  width:360px;
+  height:270px;
+  margin: 5px;
+  perspective:800px;
+  box-sizing:border-box;
+}
+.flip{
+  width: 100%;
+  height:100%;
+  backface-visibility:hidden;
+  transition: all 1s ease;
+  transform-style:preserve-3d;
+}
+.side{
+  width:100%;
+  height: 100%;
+  position:absolute;
+  left:0;
+  top:0;
+/*   color: #fff; */
+  text-align:ceter;
+  opacity:1;
+}
+.side h6{
+  color: black;
+  text-align: center;
+  margin-bottom: 1%;
+}
+.side p{
+  color: black;
+  font-size: 15px;
+}
+
+.front{
+  backface-visibility:hidden;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  background:white;
+}
+.back{
+  backface-visibility:hidden;
+  transform: rotateY(180deg);
+  background: #7ce0e4;;
+  padding: 0 3px;
+  box-sizing:border-box;
+}
+.flip_wrap:hover .flip{
+  transform : rotateY(180deg);
+  
+}
+  .flag_image{
+      width: 100%;
+      height: 100%;
+  }

@@ -365,15 +365,14 @@ if(mysqli_num_rows($result) != 0){
 /*echo "RED marker: swim schools in this postcode.<br>";
 echo "BLUE marker: swim schools near this postcode.<br>";
 echo "View school information by clicking on the marker.<br>";
-echo "You can also check detail and the programs they provided with the form below<br>";
+echo "You can also check detail and the grgrams they provided with the form below<br>";
 */
 echo "<table border='1'>
 <tr>
 <th>Place Name</th>
 <th>Address</th>
         <th>Business Category</th>
-        <th>Phone</th>
-        <th>Programs</th>
+        <th>Contact</th>
        </tr>";
 
 while($query_data = mysqli_fetch_row($result)) {
@@ -392,16 +391,20 @@ echo "<tr>";
   echo "<td><a href='",$query_data[6],"'>",$query_data[0], "</a></td>",
        "<td>",$query_data[1], " </td>",
        "<td>",$query_data[4], " </td>",
-       "<td>",$query_data[5], " </td>",
-  //     "<td>",$query_data[6], "</td>";
- "<td></td>";
+       "<td>",$query_data[5], " </td>";
 echo "</tr>";
 }
 }
       else{
-          echo '<script language="javascript">';
-          echo 'alert("No result for this search")';
-          echo '</script>';
+          if($postcode == ""){
+            echo '<script language="javascript">';
+            echo 'alert("Please enter the postcode")';
+            echo '</script>';
+          }else{
+            echo '<script language="javascript">';
+            echo 'alert("No result for this postcode area")';
+            echo '</script>';
+          }
       }
     
 }
@@ -588,7 +591,7 @@ map: map
 
                            for (i = 0; i < nameESL.length; i++) {
             marker = new google.maps.Marker({
-            position: new google.maps.LatLng(laESL[i], longESL[i]),
+            position: new google.maps.LatLng(latESL[i], longESL[i]),
             icon:{url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"},
 map: map
         });
@@ -655,7 +658,7 @@ map: map
 
                            for (i = 0; i < nameESL.length; i++) {
             marker = new google.maps.Marker({
-            position: new google.maps.LatLng(laESL[i], longESL[i]),
+            position: new google.maps.LatLng(latESL[i], longESL[i]),
             icon:{url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"},
 map: map
         });
@@ -720,6 +723,11 @@ map.setZoom(10);}
   <script src="js/aos.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
+  <script src="js/jquery.mb.YTPlayer.min.js"></script>
+
+</body>
+</html>
+ript>
   <script src="js/jquery.mb.YTPlayer.min.js"></script>
 
 </body>
