@@ -109,6 +109,10 @@
                       <li><a href="cpr.html" class="nav-link text-left">CPR</a></li>
                       <li><a href="sea_creature.html" class="nav-link text-left">Marine Animal bites</a></li>
                     </ul>
+                    <ul class="dropdown-menu">
+                    <li><a href="beach_flag.html" class="nav-link text-left">Beach Flag</a></li>
+                    <li><a href="beach_sign.html" class="nav-link text-left">Beach Warning Sign</a></li>
+                  </ul>
                   </li>
                 </ul>
               </nav>
