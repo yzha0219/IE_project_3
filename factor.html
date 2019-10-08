@@ -28,13 +28,26 @@
   <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="stylesheet" href="css/accordion.css">
 
-
+  <style>
+    p{
+      color: black;
+    }
+    h5{
+      color: #2d96c0;
+      font-weight: bold;
+    }
+    .image_size{
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
 
   <div id="google_translate_element"></div>
   <script type="text/javascript">
@@ -146,99 +159,75 @@
     </div>
 
 
-
-
-    <!--<div class="hero-2" style="background-image: url('images/waterfall-1308814_1920.jpg');">
-     <div class="container">
-        <div class="row justify-content-center text-center align-items-center">
-          <div class="col-md-8">
-            <span class="sub-title">Quiz</span>
-            <h2>River and Lake</h2>
-          </div>
-        </div>
-      </div>
-    </div>-->
-
     <div class="container" style="margin-top: 5%">
-      <div class="row"><br>
-        <span class="image-position"><a href="https://www.facebook.com/meuix/?ref=settings" target="_blank">
-          </a>
-        </span>
+      <div style="text-align: center">
+        <h5>Did You Know?</h5>
+        <p>• It only takes 20 SECONDS and a FEW CENTIMETERS of the water for children to DROWN</p>
+        <p>• Close and constant Adult SUPERVISION at all times is a MUST</p>
+        <p>• Swimming pools, Lakes, beaches, Dams and water tanks are all WATER HAZARDS</p>
+        <p>• Learn FIRST AID and CPR in case of an EMERGENCY situation</p>
       </div>
-      <div class="row"><br><br>
-        <div class="col-sm-8 col-sm-offset-2">
-          <div class="loader">
-            <div class="col-xs-3 col-xs-offset-5">
-              <div id="loadbar" style="display: none;">
-              </div>
-            </div>
-
-            <div class="quiz" id="quiz">
-
-              <div class="question">
-                <h3><span class="label label-warning" id="qid">1/4</span>
-                  <span id="question">If this river has many people are swimming, that means this river is safe enough.
-                    Is that right?</span>
-                </h3>
-              </div>
-              <ul>
-                <li>
-                  <input type="radio" id="f-option" name="selector" value="1">
-                  <label for="f-option" class="element-animation">True</label>
-                  <div class="check"></div>
-                </li>
-
-                <li>
-                  <input type="radio" id="s-option" name="selector" value="2">
-                  <label for="s-option" class="element-animation">False</label>
-                  <div class="check">
-                    <div class="inside"></div>
-                  </div>
-                </li>
-
-                <li>
-                  <input type="radio" id="t-option" name="selector" value="3">
-                  <label for="t-option" class="element-animation"></label>
-                  <div class="check">
-                    <div class="inside"></div>
-                  </div>
-                </li>
-
-                <li>
-                  <input type="radio" id="fo-option" name="selector" value="4">
-                  <label for="fo-option" class="element-animation"></label>
-                  <div class="check">
-                    <div class="inside"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="text-muted">
-            <span id="answer"></span>
-          </div>
-
+      <div class="row" style="text-align: center;margin-top: 5%">
+        <div class="col-md-5">
+          <h5>WHO DROWNS? (Children Age 0-14)</h5>
+          <p>• Average of 38 Children were dead from drowning past 10 years</p>
+          <p>• Rate of drowning deaths increases every year</p>
+          <p>• Children of age between 0 to 14 years recorded highest water falities rate</p>
+        </div>
+        <div class="col-md-7">
+          <img class="image_size" src="images/factor/14_years.png">
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <div id="result-of-question" class="pulse animated" style="display: none;">
-            <span id="totalCorrect" class="pull-right"></span>
-            <table class="table table-hover table-responsive">
-              <thead>
-                <tr>
-                  <th>Question No.</th>
-                  <th>Our answer</th>
-                  <th>Your answer</th>
-                  <th>Result</th>
-                </tr>
-              </thead>
-              <tbody id="quizResult"></tbody>
-            </table>
-          </div>
+      <div class="row" style="text-align: center;margin-top: 3%">
+        <div class="col-md-5">
+          <h5>WHEN DO DROWNINGS OCCUR?</h5>
+          <p>• The highest number of drowning deaths occured in Summer with 42% (113) in 2017</p>
+          <p>• followed by on the weekends around afternoon (12:00pm-6:00pm)</p>
+        </div>
+        <div class="col-md-7">
+          <img class="image_size" src="images/factor/death.png">
+        </div>
+      </div>
+      <div class="row" style="text-align: center;margin-top: 3%">
+        <div class="col-md-5">
+          <h5>WHERE DO DROWNING OCCUR?</h5>
+          <p>• Highest rate of the place where drowning deaths occured is the Beach(35%)</p>
+          <p>• Swimming pools, Lakes, beaches, Dams and water tanks are all water hazards</p>
+          <p>• Parents need to be well-informed and educated with safety rules and first aid</p>
+          <p>• Make sure children are under adult provision at all times</p>
+        </div>
+        <div class="col-md-7">
+          <img class="image_size" src="images/factor/beach_rate.png">
+        </div>
+      </div>
+      <div class="row" style="text-align: center;margin-top: 3%">
+        <div class="col-md-5">
+          <h5>LEARN HOW TO SWIM!</h5>
+          <p>• It is important to learn how to swim and survive</p>
+          <p>• Swimming is the highest sport activities that children participate in Australia</p>
+          <p>• Children should be aware of water safety and hazards</p>
+        </div>
+        <div class="col-md-7">
+          <img class="image_size" src="images/factor/number.png">
         </div>
       </div>
     </div>
+  </div>
+
+
+  <div class="site-section mt-5">
+    <div class="container">
+
+      <div class="row mb-5">
+        <div class="col-12 section-title text-center mb-5">
+          <h2 class="d-block"></h2>
+          <p></p>
+          <p><a href="#"></a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 
   </div>
@@ -265,7 +254,6 @@
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
   <script src="js/jquery.mb.YTPlayer.min.js"></script>
-  <script src="js/river_quiz.js"></script>
 
 
 

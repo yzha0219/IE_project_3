@@ -30,18 +30,25 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/accordion.css">
 
-
+  <style>
+    .sea_head {
+      color: #d33e04;
+      text-align: center;
+    }
+  </style>
 
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-    <div id="google_translate_element"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');}
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <div class="site-wrap">
 
@@ -124,12 +131,13 @@
                     </ul>
                   </li>
                   <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                    aria-expanded="false"> <span class="nav-label">Safety Tips</span><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="beach_flag.html" class="nav-link text-left">Beach Flag</a></li>
-                    <li><a href="beach_sign.html" class="nav-link text-left">Beach Warning Sign</a></li>
-                  </ul>
-                </li>
+                      aria-expanded="false"> <span class="nav-label">Safety Tips</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="beach_flag.html" class="nav-link text-left">Beach Flag</a></li>
+                      <li><a href="beach_sign.html" class="nav-link text-left">Beach Warning Sign</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="factor.html" class="nav-link text-left">Factor & Info</a></li>
                 </ul>
               </nav>
 
@@ -159,12 +167,47 @@
     <div class="container" style="margin-top: 3%">
       <h1 style="color: #d33e04;text-align:center;">Still Afraid of Your Kids Being Bitten or Stung?</h1>
       <h2 style="color: black;text-align:center">First Aid for Bites and Stings from Sea Creature</h2>
-      <div class="menubar" style="margin-top: 3%">
-        <a id="jellyfish" href="#">Box Jellyfish</a>
-        <a id="bluebottle" href="#">Bluebottle</a>
-        <a id="stonefish" href="#">Stonefish</a>
-        <a id="octopus" href="#">Blue-ringed Octopus</a>
-        <a id="seasnail" href="#">Sea Snail</a>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="wine_v_1 text-center">
+            <a class="thumbnail d-block mb-4"><img src="images/sea_creature/jellyfish.jpeg" alt="Image"
+                class="img-fluid"></a>
+            <div class="wine-actions">
+              <h3 class="heading-2"><a>Box Jellyfish</a></h3>
+              <a id="jellyfish" class="btn add">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="wine_v_1 text-center">
+            <a class="thumbnail d-block mb-4"><img src="images/sea_creature/bluebottle.jpeg" alt="Image"
+                class="img-fluid"></a>
+            <div class="wine-actions">
+              <h3 class="heading-2"><a>Bluebottle</a></h3>
+              <a id="bluebottle" class="btn add">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="wine_v_1 text-center">
+            <a class="thumbnail d-block mb-4"><img src="images/sea_creature/stonefish.jpeg" alt="Image"
+                class="img-fluid"></a>
+            <div class="wine-actions">
+              <h3 class="heading-2"><a>Stonefish</a></h3>
+              <a id="stonefish" class="btn add">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="wine_v_1 text-center">
+            <a class="thumbnail d-block mb-4"><img src="images/sea_creature/octopus.jpeg" alt="Image"
+                class="img-fluid"></a>
+            <div class="wine-actions">
+              <h3 class="heading-2"><a>Blue-ringed Octopus</a></h3>
+              <a id="octopus" class="btn add">Read more</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="content" style="margin-top: 3%"></div>
     </div>
