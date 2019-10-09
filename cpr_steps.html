@@ -30,7 +30,17 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/accordion.css">
 
+  <style>
+    .c_selected {
+      width: 85%;
+      height: 60%;
+    }
 
+    .c_steps {
+      width: 75%;
+      height: 50%;
+    }
+  </style>
 
 </head>
 
@@ -118,7 +128,13 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a href="swimschool.php" class="nav-link text-left">Where to go</a></li>
+                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false"> <span class="nav-label">Locations</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="swimschool.php" class="nav-link text-left">Swimming schools</a></li>
+                      <li><a href="top5.html" class="nav-link text-left">Kid-friendly beaches</a></li>
+                    </ul>
+                  </li>
                   <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                       aria-expanded="false"> <span class="nav-label">First Aid</span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -133,7 +149,7 @@
                       <li><a href="beach_sign.html" class="nav-link text-left">Beach Warning Sign</a></li>
                     </ul>
                   </li>
-                  <li><a href="factor.html" class="nav-link text-left">Factor & Info</a></li>
+                  <li><a href="factor.html" class="nav-link text-left">Facts & Info</a></li>
                 </ul>
               </nav>
 
@@ -162,18 +178,18 @@
 
 
     <div class="container" style="margin-top: 3%">
-      <h1 style="color: #d33e04;text-align:center;">7 Steps to Save Your Children</h1>
+      <h1 style="color: #d33e04;text-align:center;">Please Remember "D R S A B C D"</h1>
       <h2 style="color: black;text-align:center">Cardiopulmonary Resuscitation (CPR)</h2>
       <div class="row" style="margin-top: 3%">
         <div class="col-md-4">
           <ul class="site-navbar">
-            <li><a id="dangers" href="#">D. Dangers</a></li>
-            <li><a id="response" href="#">R. Response</a></li>
-            <li><a id="help" href="#">S. Send for help</a></li>
-            <li><a id="airway" href="#">A. Airway</a></li>
-            <li><a id="breathing" href="#">B. Breathing</a></li>
-            <li><a id="cpr" href="#">C. Start CPR 30:2</a></li>
-            <li><a id="aed" href="#">D. Apply Defibrillator (AED)</a></li>
+            <li><img id="dangers" class="c_selected" src="images/cpr_steps/D.png"></li>
+            <li><img id="response" class="c_steps" src="images/cpr_steps/R.png"></li>
+            <li><img id="help" class="c_steps" src="images/cpr_steps/S.png"></li>
+            <li><img id="airway" class="c_steps" src="images/cpr_steps/A.png"></li>
+            <li><img id="breathing" class="c_steps" src="images/cpr_steps/B.png"></li>
+            <li><img id="cpr" class="c_steps" src="images/cpr_steps/C.png"></li>
+            <li><img id="aed" class="c_steps" src="images/cpr_steps/DD.png"></li>
           </ul>
         </div>
         <div class="col-md-8">
