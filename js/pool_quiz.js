@@ -14,8 +14,8 @@ $(function(){
         {'Q':'How can you keep your children safe when you meet an acquaintance and start talking while taking them to a swimming pool?', 
         'A':2,'C':['Let the elder child to help take care of the younger ones','Give a swim ring to the children','Keep the conversation short and keep an eye on the kids','Measure the depth of the swimming pool']},
         {'Q':'What are the requirements for your children’s water toys?','A':2,'C':['Make sure that the tool is suitable for your kids','Ignore the instructions before using this toy','Just buy in a big store and choose a popular brand','After using the tool, leave it in the sun']},
-        {'Q':'After playing tools, you need to put it away from the pool and wish it. If that is correct?', 'A':1,'C':['True','False','','']},
-        {'Q':'The parents do not need to supervise their kids when kids are playing tools. Is that right?', 'A':2,'C':['True','False','','']},
+        {'Q':'After playing tools, you need to put it away from the pool and wish it. If that is correct?', 'A':1,'C':['True','False']},
+        {'Q':'The parents do not need to supervise their kids when kids are playing tools. Is that right?', 'A':2,'C':['True','False']},
         {'Q':'If this pool has pool fence, then I can', 'A':3,'C':['Lean against the pool fence to see the scenery','Dry clothes on the pool fence','Take the kids away from the pool fence even it seems safety','Sit on the pool fence and take a photo']},
         {'Q':'Which choice below can indicate that the reliability of the pool fence is high enough?', 'A':4, 'C':['Ensure the distance between the bottom rail and the ground is more than 100mm','Make sure the height of the pool fence is no less than 1.1m','Check the pool fence but can ignore some small things like screws','Check if there are some small holes on the pool fence']}
     ];
@@ -87,10 +87,19 @@ $(function(){
                     $('#loadbar').fadeOut();
                 }, 1500);
                 $('#question').html(q[questionNo].Q);
-                $($('#f-option').parent().find('label')).html(q[questionNo].C[0]);
-                $($('#s-option').parent().find('label')).html(q[questionNo].C[1]);
-                $($('#t-option').parent().find('label')).html(q[questionNo].C[2]);
-                $($('#fo-option').parent().find('label')).html(q[questionNo].C[3]);
+                if (q[questionNo].C.length == 4) {
+                    $($('#f-option').parent().find('label')).html(q[questionNo].C[0]);
+                    $($('#s-option').parent().find('label')).html(q[questionNo].C[1]);
+                    $($('#t-option').parent()).show();
+                    $($('#t-option').parent().find('label')).html(q[questionNo].C[2]);
+                    $($('#fo-option').parent()).show();
+                    $($('#fo-option').parent().find('label')).html(q[questionNo].C[3]);
+                } else {
+                    $($('#f-option').parent().find('label')).html(q[questionNo].C[0]);
+                    $($('#s-option').parent().find('label')).html(q[questionNo].C[1]);
+                    $($('#t-option').parent()).hide();
+                    $($('#fo-option').parent()).hide();
+                }
             }
         }, 1000);
     });
