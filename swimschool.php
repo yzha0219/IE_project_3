@@ -108,28 +108,14 @@
                                             </li>
                                         </ul>
                                     </li>
-                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                      aria-expanded="false"> <span class="nav-label">Locations</span><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="swimschool.php" class="nav-link text-left">Swimming schools</a></li>
-                      <li><a href="top5.html" class="nav-link text-left">Kid-friendly beaches</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                      aria-expanded="false"> <span class="nav-label">First Aid</span><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="cpr.html" class="nav-link text-left">CPR</a></li>
-                      <li><a href="sea_creature.html" class="nav-link text-left">Marine Animal bites</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                      aria-expanded="false"> <span class="nav-label">Safety Tips</span><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="beach_flag.html" class="nav-link text-left">Beach Flag</a></li>
-                      <li><a href="beach_sign.html" class="nav-link text-left">Beach Warning Sign</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="factor.html" class="nav-link text-left">Facts & Info</a></li>
+                                    <li><a href="swimschool.php" class="nav-link text-left">Where to go</a></li>
+                                    <li>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">First Aid</span><span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="cpr.html" class="nav-link text-left">CPR</a></li>
+                                            <li><a href="sea_creature.html" class="nav-link text-left">Marine Animal bites</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </nav>
 
@@ -179,9 +165,9 @@
                                     </td>
                                     <td>
                                         <select name="DIST" class="form-control search-slt">
-                                            <option value="1km">1km</option>
                                             <option value="5km">5km</option>
                                             <option value="10km">10km</option>
+                                            <option value="50km">50km</option>
                                         </select>
                                     </td>
                                     <td>
@@ -209,18 +195,19 @@
             <div class="site-section py-5 custom-border-bottom">
                 <div class="container">
                     <div>
-                        <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" align="" />
-                        <span><b>Searching Result</b></span><br>
                         <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" align="" />
-                        <span><b>Swim School: </b> Swimming classes which are designed to teach kids all the swimming skills they need to know to be safe during water activities </span><br>
+                        <span><b>Swim School: </b> Swimming classes which are designed to teach kids all the swimming skills they need to know to be safe during water activities </span>
+                        <br>
                         <img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" align="" />
                         <span><b>Swim and Survive: </b> Swim and Survive is a special swimming classes from Royal Life Saving to increase swimming skills and prevent from drownings
-                                    </span><br>
+                                    </span>
+                        <br>
                         <img src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png" align="" />
-                        <span ><b>Nippers: </b> Nippers is a program where children get together and practice their surf lifesaving techniques
-                                    </span><br>
+                        <span><b>Nippers: </b> Nippers is a program where children get together and practice their surf lifesaving techniques
+                                    </span>
+                        <br>
                         <img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" align="" />
-                        <span ><b>Express Swim Lessons: </b> Express Lessons are the swimming classes that is conducted during school holidays
+                        <span><b>Express Swim Lessons: </b> Express Lessons are the swimming classes that is conducted during school holidays
                                     </span>
 
                         <p align="right"><b>Tip:</b> Click on marker for more information</p>
@@ -228,7 +215,7 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-0">
 
 
                             <!-- Display table data. -->
@@ -351,105 +338,17 @@ array_push($longESL,$query_data[8]);
 }
 
 
-
-
-
-
-
-/*
-$resultall = mysqli_query($connection, "SELECT * FROM schoolSheet");
-$nameallArray = [];
-$addressallArray = [];
-$suburballArray = [];
-$postcodeallArray = [];
-$categoryallArray = [];
-$contactallArray = [];
-$websiteallArray = [];
-$latallArray = [];
-$longallArray = [];
-
-while($query_data = mysqli_fetch_row($resultall)) {
-//add data into array
-array_push($nameallArray,$query_data[0]);
-array_push($addressallArray,$query_data[1]);
-array_push($suburballArray,$query_data[2]);
-array_push($postcodeallArray,$query_data[3]);
-array_push($categoryallArray,$query_data[4]);
-array_push($contactallArray,$query_data[5]);
-array_push($websiteallArray,$query_data[6]);
-array_push($latallArray,$query_data[7]);
-array_push($longallArray,$query_data[8]);
-}*/
-
-if($cate == "ALL"){
-//show all data in the postcode
-$result = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE postcode='$postcode'");
-}
-else{
-//show category data in the postcode
-$result = mysqli_query($connection, "SELECT * FROM schoolSheet WHERE postcode='$postcode' AND businesscategory='$cate'");
-}
-
-$nameArray = [];
-$addressArray = [];
-$suburbArray = [];
-$postcodeArray = [];
-$categoryArray = [];
-$contactArray = [];
-$websiteArray = [];
-$latArray = [];
-$longArray = [];
-
-
-
-
-if(mysqli_num_rows($result) != 0){
-echo "<table border='1'>
-<tr>
-<th>Place Name</th>
-<th>Address</th>
-        <th>Business Category</th>
-        <th>Contact</th>
-       </tr>";
-
-while($query_data = mysqli_fetch_row($result)) {
-  //add data into array
-  array_push($nameArray,$query_data[0]);
-  array_push($addressArray,$query_data[1]);
-  array_push($suburbArray,$query_data[2]);
-  array_push($postcodeArray,$query_data[3]);
-  array_push($categoryArray,$query_data[4]);
-  array_push($contactArray,$query_data[5]);
-  array_push($websiteArray,$query_data[6]);
-  array_push($latArray,$query_data[7]);
-  array_push($longArray,$query_data[8]);
-
-echo "<tr>";
-  echo "<td><a href='",$query_data[6],"'>",$query_data[0], "</a></td>",
-       "<td>",$query_data[1], " </td>",
-       "<td>",$query_data[4], " </td>",
-       "<td>",$query_data[5], " </td>";
-echo "</tr>";
-}
-}
-      else{
-          if($postcode == ""){
+    if($postcode == ""){
             echo '<script language="javascript">';
             echo 'alert("Please enter the postcode")';
-            echo '</script>';
-          }else{
-            echo '<script language="javascript">';
-            echo 'alert("No result for this postcode area")';
-            echo '</script>';
-          }
-      }
+            echo '</script>';}
 
 }
 ?>
 
                             </table>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
 
 
                             <div id="map"></div>
@@ -475,15 +374,197 @@ echo "</tr>";
             console.log(input);
             console.log(cate);
 
+            var dict = {
+                '3000': '-37.813/144.961',
+                '3002': '-37.813/144.984',
+                '3003': '-37.809/144.947',
+                '3004': '-37.842/144.976',
+                '3008': '-37.818/144.944',
+                '3011': '-37.798/144.895',
+                '3012': '-37.799/144.871',
+                '3013': '-37.817/144.884',
+                '3015': '-37.843/144.878',
+                '3016': '-37.86/144.892',
+                '3018': '-37.865/144.819',
+                '3019': '-37.786/144.855',
+                '3020': '-37.795/144.809',
+                '3021': '-37.744/144.804',
+                '3022': '-37.778/144.802',
+                '3023': '-37.767/144.766',
+                '3024': '-37.878/144.615',
+                '3025': '-37.835/144.85',
+                '3027': '-37.86/144.743',
+                '3028': '-37.877/144.778',
+                '3029': '-37.844/144.673',
+                '3030': '-37.897/144.744',
+                '3031': '-37.794/144.926',
+                '3032': '-37.776/144.889',
+                '3033': '-37.742/144.866',
+                '3034': '-37.761/144.862',
+                '3037': '-37.7/144.766',
+                '3038': '-37.699/144.787',
+                '3039': '-37.766/144.92',
+                '3040': '-37.75/144.911',
+                '3044': '-37.724/144.938',
+                '3046': '-37.704/144.924',
+                '3047': '-37.684/144.927',
+                '3051': '-37.799/144.949',
+                '3053': '-37.801/144.966',
+                '3055': '-37.763/144.943',
+                '3056': '-37.767/144.962',
+                '3057': '-37.77/144.976',
+                '3058': '-37.745/144.964',
+                '3059': '-37.637/144.892',
+                '3060': '-37.706/144.969',
+                '3061': '-37.666/144.96',
+                '3064': '-37.589/144.919',
+                '3066': '-37.802/144.987',
+                '3067': '-37.806/145.002',
+                '3071': '-37.758/145.004',
+                '3072': '-37.741/145.006',
+                '3073': '-37.714/145.01',
+                '3074': '-37.682/145.013',
+                '3075': '-37.667/145.014',
+                '3076': '-37.641/145.028',
+                '3079': '-37.766/145.042',
+                '3082': '-37.663/145.062',
+                '3095': '-37.713/145.155',
+                '3101': '-37.805/145.037',
+                '3103': '-37.81/145.083',
+                '3104': '-37.793/145.084',
+                '3106': '-37.76/145.146',
+                '3107': '-37.765/145.113',
+                '3108': '-37.785/145.125',
+                '3109': '-37.782/145.162',
+                '3121': '-37.819/145.001',
+                '3122': '-37.823/145.033',
+                '3123': '-37.829/145.05',
+                '3125': '-37.849/145.116',
+                '3128': '-37.82/145.124',
+                '3129': '-37.807/145.129',
+                '3130': '-37.821/145.151',
+                '3131': '-37.818/145.176',
+                '3132': '-37.818/145.198',
+                '3136': '-37.794/145.284',
+                '3138': '-37.78/145.322',
+                '3140': '-37.758/145.355',
+                '3142': '-37.842/145.014',
+                '3143': '-37.858/145.02',
+                '3144': '-37.857/145.035',
+                '3145': '-37.878/145.063',
+                '3149': '-37.877/145.129',
+                '3150': '-37.91/145.185',
+                '3152': '-37.853/145.229',
+                '3153': '-37.846/145.265',
+                '3155': '-37.858/145.283',
+                '3156': '-37.883/145.28',
+                '3161': '-37.871/145.022',
+                '3162': '-37.894/145.025',
+                '3163': '-37.892/145.056',
+                '3165': '-37.921/145.066',
+                '3168': '-37.919/145.126',
+                '3170': '-37.928/145.177',
+                '3171': '-37.948/145.152',
+                '3173': '-37.996/145.169',
+                '3174': '-37.968/145.176',
+                '3175': '-37.985/145.211',
+                '3178': '-37.921/145.249',
+                '3181': '-37.851/144.998',
+                '3182': '-37.863/144.982',
+                '3183': '-37.863/145.002',
+                '3184': '-37.88/144.987',
+                '3185': '-37.886/145.007',
+                '3186': '-37.909/144.997',
+                '3187': '-37.916/145.016',
+                '3188': '-37.938/145.01',
+                '3191': '-37.953/145.015',
+                '3192': '-37.963/145.066',
+                '3193': '-37.983/145.04',
+                '3194': '-37.981/145.068',
+                '3195': '-37.992/145.08',
+                '3198': '-38.11/145.137',
+                '3199': '-38.148/145.141',
+                '3204': '-37.923/145.039',
+                '3205': '-37.834/144.962',
+                '3207': '-37.839/144.938',
+                '3212': '-38.024/144.399',
+                '3214': '-38.072/144.359',
+                '3216': '-38.179/144.338',
+                '3220': '-38.153/144.338',
+                '3226': '-38.26/144.533',
+                '3228': '-38.32/144.326',
+                '3300': '-37.738/142.025',
+                '3305': '-38.351/141.602',
+                '3337': '-37.671/144.556',
+                '3338': '-37.71/144.575',
+                '3355': '-37.531/143.831',
+                '3356': '-37.596/143.836',
+                '3400': '-36.716/142.198',
+                '3429': '-37.576/144.719',
+                '3500': '-34.196/142.146',
+                '3555': '-36.801/144.238',
+                '3564': '-36.137/144.747',
+                '3585': '-35.342/143.55',
+                '3630': '-36.379/145.404',
+                '3672': '-36.554/145.98',
+                '3677': '-36.358/146.311',
+                '3690': '-36.125/146.852',
+                '3750': '-37.614/145.021',
+                '3752': '-37.636/145.085',
+                '3754': '-37.599/145.086',
+                '3802': '-37.977/145.261',
+                '3805': '-38.017/145.307',
+                '3806': '-38.041/145.342',
+                '3809': '-38.065/145.413',
+                '3810': '-38.071/145.476',
+                '3818': '-38.131/145.853',
+                '3820': '-38.157/145.933',
+                '3825': '-38.181/146.257',
+                '3840': '-38.231/146.414',
+                '3844': '-38.195/146.532',
+                '3850': '-38.103/147.075',
+                '3875': '-37.828/147.61',
+                '3910': '-38.153/145.196',
+                '3915': '-38.305/145.183',
+                '3922': '-38.456/145.232',
+                '3930': '-38.191/145.093',
+                '3931': '-38.23/145.048',
+                '3934': '-38.267/145.026',
+                '3936': '-38.338/144.972',
+                '3939': '-38.367/144.909',
+                '3941': '-38.38/144.811',
+                '3976': '-38.036/145.266',
+                '3977': '-38.078/145.3',
+                '3978': '-38.099/145.341'
+            };
+
+
+            console.log(dict[input]);
+            postlocation = dict[input].split("/");
+            console.log(postlocation[0]);
+            console.log(postlocation[1]);
+
+
             function initMap(position) {
                 // Map options
-                var options = {
+
+                   var options = {
                     zoom: 12,
                     center: {
                         lat: -37.8409,
                         lng: 144.9464
                     }
                 }
+
+                   var options2 = {
+                    zoom: 12,
+                    center: {
+                        lat: Number(postlocation[0]),
+                        lng: Number(postlocation[1])
+                    }
+                }
+
+
 
 
                 // get database data from php
@@ -553,15 +634,18 @@ echo "</tr>";
                 console.log(latArray);
                 console.log(longArray);
                 // New map
-                var map = new google.maps.Map(document.getElementById('map'), options);
+
+                if(input == ""){
+                    var map = new google.maps.Map(document.getElementById('map'), options);}
+                else{
+                    var map = new google.maps.Map(document.getElementById('map'), options2);
+                }
+
                 //setting boundary
-                //var bounds  = new google.maps.LatLngBounds();
+                var bounds  = new google.maps.LatLngBounds();
                 //content
 
-
-
-
-
+                var boo = 0;
 
 
                 var infowindow = new google.maps.InfoWindow;
@@ -571,80 +655,326 @@ echo "</tr>";
 
                     //swim school
                     for (i = 0; i < nameSSL.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(latSSL[i], longSSL[i]),
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-                            },
-                            map: map
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent('<div><h3>' + nameSSL[i] + '</h3><p>' + addressSSL[i] +
-                                    '<br>' + contSSL[i] + '<br>' + cateSSL[i] + '<br><a href=' + webSSL[i] + '>' + webSSL[i] + '</a></p></div>');
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+
+                        var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latSSL[i], longSSL[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSL[i], longSSL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSL[i] + '</h3><p>Address:<br>' + addressSSL[i] +
+                                                '<br>Contact:<br>' + contSSL[i] + '<br>' + cateSSL[i] + '<br><a href=' + webSSL[i] + '>' + webSSL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSL[i], longSSL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSL[i] + '</h3><p>Address:<br>' + addressSSL[i] +
+                                                '<br>Contact:<br>' + contSSL[i] + '<br>' + cateSSL[i] + '<br><a href=' + webSSL[i] + '>' + webSSL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSL[i], longSSL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSL[i] + '</h3><p>Address:<br>' + addressSSL[i] +
+                                                '<br>Contact:<br>' + contSSL[i] + '<br>' + cateSSL[i] + '<br><a href=' + webSSL[i] + '>' + webSSL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+                        }
+
                     }
+
 
 
                     //swim and survive
                     for (i = 0; i < nameSSV.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(latSSV[i], longSSV[i]),
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
-                            },
-                            map: map
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>' + addressSSV[i] +
-                                    '<br>' + contSSL[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+                       var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latSSV[i], longSSV[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>Address:<br>' + addressSSV[i] +
+                                                '<br>Contact:<br>' + contSSV[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>Address:<br>' + addressSSV[i] +
+                                                '<br>Contact:<br>' + contSSV[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>Address:<br>' + addressSSV[i] +
+                                                '<br>Contact:<br>' + contSSV[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+                        }
+
                     }
+
 
                     //nippers
                     for (i = 0; i < nameNIP.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(latNIP[i], longNIP[i]),
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
-                            },
-                            map: map
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>' + addressNIP[i] +
-                                    '<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+                        var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latNIP[i], longNIP[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>Address:<br>' + addressNIP[i] +
+                                                '<br>Contact:<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>Address:<br>' + addressNIP[i] +
+                                                '<br>Contact:<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>Address:<br>' + addressNIP[i] +
+                                                '<br>Contact:<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+                        }
+
                     }
+
 
                     //Express Swim Lessons
 
                     for (i = 0; i < nameESL.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(latESL[i], longESL[i]),
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-                            },
-                            map: map
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>' + addressESL[i] +
-                                    '<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+               var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latESL[i], longESL[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latESL[i], longESL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>Address:<br>' + addressESL[i] +
+                                                '<br>Contact:<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latESL[i], longESL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>Address:<br>' + addressESL[i] +
+                                                '<br>Contact:<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latESL[i], longESL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>Address:<br>' + addressESL[i] +
+                                                '<br>Contact:<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+                        }
 
                     }
 
+
+
                 } else if (cate == "Swim School") {
+                    /*
 
                     for (i = 0; i < nameSSL.length; i++) {
                         marker = new google.maps.Marker({
@@ -661,68 +991,333 @@ echo "</tr>";
                                 infowindow.open(map, marker);
                             }
                         })(marker, i));
+                    }*/
+
+                    for (i = 0; i < nameSSL.length; i++) {
+
+                        var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latSSL[i], longSSL[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSL[i], longSSL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSL[i] + '</h3><p>Address:<br>' + addressSSL[i] +
+                                                '<br>Contact:<br>' + contSSL[i] + '<br>' + cateSSL[i] + '<br><a href=' + webSSL[i] + '>' + webSSL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSL[i], longSSL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSL[i] + '</h3><p>Address:<br>' + addressSSL[i] +
+                                                '<br>Contact:<br>' + contSSL[i] + '<br>' + cateSSL[i] + '<br><a href=' + webSSL[i] + '>' + webSSL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSL[i], longSSL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSL[i] + '</h3><p>Address:<br>' + addressSSL[i] +
+                                                '<br>Contact:<br>' + contSSL[i] + '<br>' + cateSSL[i] + '<br><a href=' + webSSL[i] + '>' + webSSL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+                        }
+
+
+
+
+
                     }
 
 
 
                 } else if (cate == "Swim and Survive") {
 
-                    for (i = 0; i < nameSSV.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(latSSV[i], longSSV[i]),
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
-                            },
-                            map: map
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>' + addressSSV[i] +
-                                    '<br>' + contSSL[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+                   for (i = 0; i < nameSSV.length; i++) {
+                       var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latSSV[i], longSSV[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>Address:<br>' + addressSSV[i] +
+                                                '<br>Contact:<br>' + contSSV[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>Address:<br>' + addressSSV[i] +
+                                                '<br>Contact:<br>' + contSSV[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latSSV[i], longSSV[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameSSV[i] + '</h3><p>Address:<br>' + addressSSV[i] +
+                                                '<br>Contact:<br>' + contSSV[i] + '<br>' + cateSSV[i] + '<br><a href=' + webSSV[i] + '>' + webSSV[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+                        }
+
                     }
 
                 } else if (cate == "Nippers") {
-                    for (i = 0; i < nameNIP.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(latNIP[i], longNIP[i]),
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
-                            },
-                            map: map
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>' + addressNIP[i] +
-                                    '<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+                            for (i = 0; i < nameNIP.length; i++) {
+                        var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latNIP[i], longNIP[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>Address:<br>' + addressNIP[i] +
+                                                '<br>Contact:<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>Address:<br>' + addressNIP[i] +
+                                                '<br>Contact:<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latNIP[i], longNIP[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameNIP[i] + '</h3><p>Address:<br><br>' + addressNIP[i] +
+                                                '<br>Contact:<br>' + contNIP[i] + '<br>' + cateNIP[i] + '<br><a href=' + webNIP[i] + '>' + webNIP[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+                        }
+
                     }
                 } else {
 
 
+
                     for (i = 0; i < nameESL.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(latESL[i], longESL[i]),
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-                            },
-                            map: map
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>' + addressESL[i] +
-                                    '<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+               var ddd = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(postlocation[0], postlocation[1]), new google.maps.LatLng(latESL[i], longESL[i]));
+                        var dd = ddd / 1000;
+                        console.log(dd);
+                        console.log(dist);
+                        switch (dist) {
+                            case "5km":
+                                if (dd <= 5) {
+                                    console.log("<5");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latESL[i], longESL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>Address:<br>' + addressESL[i] +
+                                                '<br>Contact:<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "10km":
+
+                                if (dd <= 10) {
+                                    console.log("<10");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latESL[i], longESL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>Address:<br>' + addressESL[i] +
+                                                '<br>Contact:<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+                                break;
+                            case "50km":
+                                if (dd <= 50) {
+                                    console.log("<50");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(latESL[i], longESL[i]),
+                                        icon: {
+                                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                                        },
+                                        map: map
+                                    });
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div><h3>' + nameESL[i] + '</h3><p>Address:<br>' + addressESL[i] +
+                                                '<br>Contact:<br>' + contESL[i] + '<br>' + cateESL[i] + '<br><a href=' + webESL[i] + '>' + webESL[i] + '</a></p></div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+
+                                    boo =1;
+
+                                }
+
+
+                        }
 
                     }
-                }
 
+
+                }
+/*
                 if (nameArray.length != 0) {
                     //marker
                     //var marker, j;
@@ -755,15 +1350,21 @@ echo "</tr>";
                         map.setCenter(marker.getPosition());
                     }
 
+                }*/
+
+
+                if(boo == 0){
+
+                    alert("Sorry, no result for this search");
                 }
+boo = 0;
             }
 
         </script>
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkAJUTwYmqWrBWDjRAp0bRy8MSG2BHuXU&callback=initMap">
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkAJUTwYmqWrBWDjRAp0bRy8MSG2BHuXU&callback=initMap"></script>
 
-
-        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry"></script>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/jquery-migrate-3.0.1.min.js"></script>
         <script src="js/jquery-ui.js"></script>
@@ -783,3 +1384,4 @@ echo "</tr>";
 </body>
 
 </html>
+
