@@ -108,14 +108,28 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="swimschool.php" class="nav-link text-left">Where to go</a></li>
-                                    <li>
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">First Aid</span><span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="cpr.html" class="nav-link text-left">CPR</a></li>
-                                            <li><a href="sea_creature.html" class="nav-link text-left">Marine Animal bites</a></li>
-                                        </ul>
-                                    </li>
+<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false"> <span class="nav-label">Location</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="swimschool.php" class="nav-link text-left">Swim School</a></li>
+                      <li><a href="top5.html" class="nav-link text-left">Kid-friendly Beaches</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false"> <span class="nav-label">First Aid</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="cpr.html" class="nav-link text-left">CPR</a></li>
+                      <li><a href="sea_creature.html" class="nav-link text-left">Marine Animal bites</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false"> <span class="nav-label">Safety Tips</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="beach_flag.html" class="nav-link text-left">Beach Flag</a></li>
+                      <li><a href="beach_sign.html" class="nav-link text-left">Beach Warning Sign</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="factor.html" class="nav-link text-left">Facts & Info</a></li>
                                 </ul>
                             </nav>
 
